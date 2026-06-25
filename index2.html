@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Vocab Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
+                ⚡ <span id="app-title">VocabTrainer</span>
+            </h1>
+            <div id="stats-panel" class="hidden flex items-center gap-6 text-sm font-medium text-slate-600">
+                <div>Total: <span id="stat-total" class="text-slate-900 font-bold">0</span></div>
+                <div>Correct: <span id="stat-correct" class="text-emerald-600 font-bold">0</span></div>
+                <div>Incorrect: <span id="stat-incorrect" class="text-rose-600 font-bold">0</span></div>
+                <div>Accuracy: <span id="stat-accuracy" class="text-blue-600 font-bold">0%</span></div>
+            </div>
+            <button id="btn-finish-top" class="hidden px-4 py-1.5 bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm" onclick="finishSession()">
+                Finish Session
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-4xl w-full mx-auto p-4 flex-grow flex flex-col justify-center items-center">
+        
+        <div id="screen-setup" class="w-full max-w-xl bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+            <div>
+                <h2 class="text-lg font-bold text-slate-900 mb-1">1. Select Vocabulary File</h2>
+                <p class="text-xs text-slate-500 mb-3">Choose a text file from your directory to load words.</p>
+                <select id="file-selector" class="w-full p-3 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium text-slate-700">
+                    </select>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Test Mode</label>
+                    <select id="setting-mode" class="w-full p-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="toggleOptionsVisibility()">
+                        <option value="choice">Single Choice (Multiple Options)</option>
+                        <option value="matching">Correspondence (Matching Pairs)</option>
+                        <option value="spelling">Spelling (Type it in)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Translation Direction</label>
+                    <select id="setting-direction" class="w-full p-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="ua-en">UA → EN</option>
+                        <option value="en-ua">EN → UA</option>
+                        <option value="random">Randomized</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="wrapper-choices-count">
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Number of Choices</label>
+                <input type="number" id="setting-choices" value="4" min="2" max="10" class="w-full p-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <button onclick="startSession()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl transition-colors shadow-md">
+                Start Infinite Session
+            </button>
+        </div>
+
+        <div id="screen-test" class="w-full max-w-xl bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6 hidden">
+            
+            <div class="text-center space-y-1">
+                <span id="test-direction-badge" class="px-2 py-0.5 text-xs font-bold tracking-wide uppercase bg-slate-100 text-slate-600 rounded-md"></span>
+                <h3 id="test-question-prompt" class="text-2xl font-bold text-slate-900 pt-2"></h3>
+            </div>
+
+            <div id="test-workspace" class="min-h-[160px] flex flex-col justify-center">
+                </div>
+
+            <div id="test-feedback" class="text-center font-semibold text-sm hidden py-2 rounded-xl"></div>
+
+            <div class="flex gap-3 pt-2">
+                <button id="btn-submit" class="flex-grow py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-sm hidden">
+                    Check Answer
+                </button>
+                <button id="btn-next" class="flex-grow py-3 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl transition-colors shadow-sm hidden">
+                    Next Question →
+                </button>
+            </div>
+        </div>
+
+        <div id="screen-results" class="w-full max-w-xl bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6 hidden">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl font-bold text-slate-900">Session Finished! 🎉</h2>
+                <p class="text-slate-500">Here's a breakdown of your learning session performance.</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <div class="text-2xl font-bold text-slate-900" id="res-total">0</div>
+                    <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Answered</div>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                    <div class="text-2xl font-bold text-emerald-700" id="res-correct">0</div>
+                    <div class="text-xs text-emerald-600 font-medium uppercase tracking-wider mt-1">Correct</div>
+                </div>
+                <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                    <div class="text-2xl font-bold text-rose-700" id="res-accuracy">0%</div>
+                    <div class="text-xs text-rose-600 font-medium uppercase tracking-wider mt-1">Accuracy</div>
+                </div>
+            </div>
+
+            <div id="wrapper-review" class="space-y-3">
+                <h3 class="text-md font-bold text-slate-900 flex items-center gap-2">
+                    ❌ Items to Review (<span id="res-incorrect-count">0</span>)
+                </h3>
+                <div id="incorrect-list-container" class="max-h-60 overflow-y-auto border border-slate-200 rounded-xl divide-y divide-slate-100 text-sm">
+                    </div>
+            </div>
+
+            <button onclick="restartSetup()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl transition-colors shadow-md">
+                Start a New Session
+            </button>
+        </div>
+
+    </main>
+
+    <footer class="text-center py-4 text-xs text-slate-400 border-t border-slate-100 bg-white">
+        Modern Infinite Vocab Trainer • Built Clean & Responsive
+    </footer>
+
+    <script>
+        // -------------------------------------------------------------
+        // CONFIGURATION: Add your vocabulary text file names here!
+        // -------------------------------------------------------------
+        const VOCAB_FILES = [
+            'words.txt',
+            'lesson1.txt',
+            'verbs.txt',
+            'vocabulary.txt'
+        ];
+
+        // Application State
+        let wordsDatabase = [];
+        let config = { mode: 'choice', direction: 'ua-en', choicesCount: 4 };
+        let stats = { total: 0, correct: 0, incorrect: 0 };
+        let incorrectTracking = []; // Format: { prompt, correct }
+        
+        // Runtime variables for current question
+        let currentQuestionData = null; 
+        let currentDirection = 'ua-en'; 
+        let matchingState = { leftSelected: null, rightSelected: null, totalPairs: 0, matchedPairs: 0 };
+
+        // Class Styles Configurations for clean execution
+        const STYLES = {
+            default: "p-3 border border-slate-200 rounded-xl text-sm font-medium bg-white text-slate-800 text-left transition-all focus:outline-none w-full shadow-sm hover:bg-slate-50",
+            selected: "p-3 border-2 border-blue-500 bg-blue-50 text-blue-700 rounded-xl text-sm font-semibold text-left focus:outline-none w-full shadow-sm",
+            wrong: "p-3 border-2 border-rose-500 bg-rose-50 text-rose-700 rounded-xl text-sm font-semibold text-left focus:outline-none w-full shadow-sm",
+            matched: "p-3 border border-slate-200 bg-slate-100 text-slate-400 rounded-xl text-sm font-medium text-left w-full opacity-40 pointer-events-none transition-all"
+        };
+
+        // Initialize setup directory listing configurations
+        window.addEventListener('DOMContentLoaded', () => {
+            const selector = document.getElementById('file-selector');
+            selector.innerHTML = '';
+            VOCAB_FILES.forEach(fileName => {
+                const opt = document.createElement('option');
+                opt.value = fileName;
+                opt.innerText = fileName;
+                selector.appendChild(opt);
+            });
+        });
+
+        // Hide choice counts if matching mode is selected
+        function toggleOptionsVisibility() {
+            const mode = document.getElementById('setting-mode').value;
+            const choicesWrapper = document.getElementById('wrapper-choices-count');
+            if (mode === 'choice') {
+                choicesWrapper.classList.remove('hidden');
+            } else {
+                choicesWrapper.classList.add('hidden');
+            }
+        }
+
+        // Parse user text document entries structures
+        function parseInputText(text) {
+            const lines = text.split('\n');
+            const list = [];
+            lines.forEach(line => {
+                if (!line.trim()) return;
+                const parts = line.split(/\s*[-:=|\t]\s*/);
+                if (parts.length >= 2) {
+                    list.push({
+                        ua: parts[0].trim(),
+                        en: parts[1].trim()
+                    });
+                }
+            });
+            return list;
+        }
+
+        async function startSession() {
+            const selectedFile = document.getElementById('file-selector').value;
+            
+            if (!selectedFile) {
+                alert('No vocabulary file selected.');
+                return;
+            }
+
+            try {
+                const response = await fetch(selectedFile);
+                if (!response.ok) throw new Error(`Could not access file: ${selectedFile}`);
+                const textData = await response.text();
+                wordsDatabase = parseInputText(textData);
+            } catch (err) {
+                alert(`Error loading file matrix target: ${err.message}\n\nNote: Ensure you are serving this workspace folder via a local server environment (e.g. Live Server) due to browser security layouts restrictions.`);
+                return;
+            }
+
+            if (wordsDatabase.length < 2) {
+                alert('The selected file must contain at least 2 valid vocabulary items.');
+                return;
+            }
+
+            // Lock configs
+            config.mode = document.getElementById('setting-mode').value;
+            config.direction = document.getElementById('setting-direction').value;
+            config.choicesCount = Math.max(2, parseInt(document.getElementById('setting-choices').value) || 4);
+
+            // Reset States
+            stats = { total: 0, correct: 0, incorrect: 0 };
+            incorrectTracking = [];
+            updateStatsUI();
+
+            // Screen Switch
+            document.getElementById('screen-setup').classList.add('hidden');
+            document.getElementById('screen-test').classList.remove('hidden');
+            document.getElementById('stats-panel').classList.remove('hidden');
+            document.getElementById('btn-finish-top').classList.remove('hidden');
+
+            generateQuestion();
+        }
+
+        function updateStatsUI() {
+            document.getElementById('stat-total').innerText = stats.total;
+            document.getElementById('stat-correct').innerText = stats.correct;
+            document.getElementById('stat-incorrect').innerText = stats.incorrect;
+            const accuracy = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
+            document.getElementById('stat-accuracy').innerText = accuracy + '%';
+        }
+
+        function generateQuestion() {
+            const workspace = document.getElementById('test-workspace');
+            const feedback = document.getElementById('test-feedback');
+            const btnSubmit = document.getElementById('btn-submit');
+            const btnNext = document.getElementById('btn-next');
+            
+            workspace.innerHTML = '';
+            feedback.className = "text-center font-semibold text-sm hidden py-2 rounded-xl";
+            feedback.innerText = '';
+            btnSubmit.classList.add('hidden');
+            btnNext.classList.add('hidden');
+
+            // Handle direction calculation
+            currentDirection = config.direction;
+            if (config.direction === 'random') {
+                currentDirection = Math.random() > 0.5 ? 'ua-en' : 'en-ua';
+            }
+            document.getElementById('test-direction-badge').innerText = currentDirection.toUpperCase().replace('-', ' ➔ ');
+
+            // Routing Question Generation By Mode
+            if (config.mode === 'choice') {
+                setupMultipleChoiceQuestion(workspace, btnNext);
+            } else if (config.mode === 'spelling') {
+                setupSpellingQuestion(workspace, btnSubmit, btnNext);
+            } else if (config.mode === 'matching') {
+                setupMatchingQuestion(workspace, btnNext);
+            }
+        }
+
+        // --- MODE 1: MULTIPLE CHOICE ---
+        function setupMultipleChoiceQuestion(workspace, btnNext) {
+            const target = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
+            currentQuestionData = target;
+
+            // Swapped directions: UA->EN means Prompt EN, Answer UA
+            const questionText = currentDirection === 'ua-en' ? target.en : target.ua;
+            const correctAnswer = currentDirection === 'ua-en' ? target.ua : target.en;
+            document.getElementById('test-question-prompt').innerText = `Translate: "${questionText}"`;
+
+            let options = [correctAnswer];
+            let loopCounter = 0;
+            const maxDecoys = Math.min(config.choicesCount, wordsDatabase.length);
+
+            while (options.length < maxDecoys && loopCounter < 200) {
+                const randomWord = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
+                const potentialDecoy = currentDirection === 'ua-en' ? randomWord.ua : randomWord.en;
+                if (!options.includes(potentialDecoy)) {
+                    options.push(potentialDecoy);
+                }
+                loopCounter++;
+            }
+            options.sort(() => Math.random() - 0.5);
+
+            const grid = document.createElement('div');
+            grid.className = "grid grid-cols-1 sm:grid-cols-2 gap-3 w-full";
+
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = STYLES.default;
+                btn.innerText = opt;
+                btn.onclick = () => handleChoiceSelection(btn, opt, correctAnswer, grid, btnNext);
+                grid.appendChild(btn);
+            });
+            workspace.appendChild(grid);
+        }
+
+        function handleChoiceSelection(selectedBtn, chosen, correct, gridElement, btnNext) {
+            Array.from(gridElement.children).forEach(btn => btn.disabled = true);
+            
+            stats.total++;
+            const feedback = document.getElementById('test-feedback');
+            feedback.classList.remove('hidden');
+
+            if (chosen === correct) {
+                stats.correct++;
+                selectedBtn.className = "p-3.5 text-left border border-emerald-500 bg-emerald-50 text-emerald-800 rounded-xl text-sm font-bold shadow-sm";
+                feedback.innerText = "✨ Correct selection!";
+                feedback.classList.add('bg-emerald-50', 'text-emerald-700');
+            } else {
+                stats.incorrect++;
+                selectedBtn.className = "p-3.5 text-left border border-rose-500 bg-rose-50 text-rose-800 rounded-xl text-sm font-bold shadow-sm";
+                feedback.innerText = `Incorrect. Correct answer was: "${correct}"`;
+                feedback.classList.add('bg-rose-50', 'text-rose-700');
+                
+                incorrectTracking.push({
+                    prompt: currentDirection === 'ua-en' ? currentQuestionData.en : currentQuestionData.ua,
+                    correct: correct
+                });
+
+                Array.from(gridElement.children).forEach(btn => {
+                    if (btn.innerText === correct) {
+                        btn.className = "p-3.5 text-left border border-emerald-500 bg-emerald-50 text-emerald-800 rounded-xl text-sm font-semibold shadow-sm";
+                    }
+                });
+            }
+            updateStatsUI();
+            btnNext.classList.remove('hidden');
+        }
+
+        // --- MODE 2: SPELLING (TYPING) ---
+        function setupSpellingQuestion(workspace, btnSubmit, btnNext) {
+            const target = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
+            currentQuestionData = target;
+
+            // Swapped directions logic
+            const questionText = currentDirection === 'ua-en' ? target.en : target.ua;
+            const correctAnswer = currentDirection === 'ua-en' ? target.ua : target.en;
+            document.getElementById('test-question-prompt').innerText = `Type the translation for: "${questionText}"`;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = 'spelling-input-field';
+            input.className = "w-full p-3 text-center text-lg border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm";
+            input.placeholder = "Type your answer here...";
+            input.autocomplete = "off";
+
+            input.onkeydown = (e) => {
+                if (e.key === 'Enter' && !btnSubmit.classList.contains('hidden')) {
+                    btnSubmit.click();
+                } else if (e.key === 'Enter' && !btnNext.classList.contains('hidden')) {
+                    btnNext.click();
+                }
+            }
+
+            workspace.appendChild(input);
+            btnSubmit.classList.remove('hidden');
+            setTimeout(() => input.focus(), 50);
+
+            btnSubmit.onclick = () => {
+                const userVal = input.value.trim();
+                if (!userVal) return;
+
+                btnSubmit.classList.add('hidden');
+                input.disabled = true;
+                stats.total++;
+                
+                const feedback = document.getElementById('test-feedback');
+                feedback.classList.remove('hidden');
+
+                if (userVal.toLowerCase() === correctAnswer.toLowerCase()) {
+                    stats.correct++;
+                    input.className = "w-full p-3 text-center text-lg border border-emerald-500 bg-emerald-50 text-emerald-800 font-semibold rounded-xl shadow-sm";
+                    feedback.innerText = "✨ Spot on! Correct.";
+                    feedback.classList.add('bg-emerald-50', 'text-emerald-700');
+                } else {
+                    stats.incorrect++;
+                    input.className = "w-full p-3 text-center text-lg border border-rose-500 bg-rose-50 text-rose-800 font-semibold rounded-xl shadow-sm";
+                    feedback.innerText = `Incorrect. Expected solution: "${correctAnswer}"`;
+                    feedback.classList.add('bg-rose-50', 'text-rose-700');
+                    
+                    incorrectTracking.push({
+                        prompt: questionText,
+                        correct: correctAnswer
+                    });
+                }
+                updateStatsUI();
+                btnNext.classList.remove('hidden');
+            };
+        }
+
+        // --- MODE 3: CORRESPONDENCE MATCHING ---
+        function setupMatchingQuestion(workspace, btnNext) {
+            document.getElementById('test-question-prompt').innerText = "Match the corresponding pairs";
+            
+            const poolSize = Math.min(5, wordsDatabase.length);
+            const shuffledPool = [...wordsDatabase].sort(() => Math.random() - 0.5).slice(0, poolSize);
+            
+            // Swapped matching mapping: left becomes EN, right becomes UA for standard ua-en setting setup direction
+            let leftSide = shuffledPool.map(w => ({ id: w.ua, text: currentDirection === 'ua-en' ? w.en : w.ua, correctPartner: currentDirection === 'ua-en' ? w.ua : w.en }));
+            let rightSide = shuffledPool.map(w => ({ id: w.ua, text: currentDirection === 'ua-en' ? w.ua : w.en, correctPartner: currentDirection === 'ua-en' ? w.en : w.ua }));
+
+            leftSide.sort(() => Math.random() - 0.5);
+            rightSide.sort(() => Math.random() - 0.5);
+
+            matchingState = { leftSelected: null, rightSelected: null, totalPairs: poolSize, matchedPairs: 0 };
+
+            const container = document.createElement('div');
+            container.className = "grid grid-cols-2 gap-4 w-full";
+
+            const leftCol = document.createElement('div');
+            leftCol.className = "space-y-2 flex flex-col";
+            const rightCol = document.createElement('div');
+            rightCol.className = "space-y-2 flex flex-col";
+
+            leftSide.forEach(item => {
+                const btn = document.createElement('button');
+                btn.className = STYLES.default;
+                btn.innerText = item.text;
+                btn.onclick = () => handleMatchingClick(btn, item, 'left', leftCol, rightCol, btnNext);
+                leftCol.appendChild(btn);
+            });
+
+            rightSide.forEach(item => {
+                const btn = document.createElement('button');
+                btn.className = STYLES.default;
+                btn.innerText = item.text;
+                btn.onclick = () => handleMatchingClick(btn, item, 'right', leftCol, rightCol, btnNext);
+                rightCol.appendChild(btn);
+            });
+
+            container.appendChild(leftCol);
+            container.appendChild(rightCol);
+            workspace.appendChild(container);
+        }
+
+        function handleMatchingClick(btn, data, side, leftCol, rightCol, btnNext) {
+            const currentColumn = side === 'left' ? leftCol : rightCol;
+            
+            // Wipe out existing temporary styling selections safely within the selected column block
+            Array.from(currentColumn.children).forEach(child => {
+                if(!child.classList.contains('opacity-40')) {
+                    child.className = STYLES.default;
+                }
+            });
+
+            // Wipe out lingering wrong markers configurations from the opposite column if new selection begins
+            const oppositeColumn = side === 'left' ? rightCol : leftCol;
+            Array.from(oppositeColumn.children).forEach(child => {
+                if(child.classList.contains('border-rose-500')) {
+                    child.className = STYLES.default;
+                }
+            });
+
+            if (side === 'left') {
+                matchingState.leftSelected = { btn: btn, data: data };
+                btn.className = STYLES.selected;
+            } else {
+                matchingState.rightSelected = { btn: btn, data: data };
+                btn.className = STYLES.selected;
+            }
+
+            if (matchingState.leftSelected && matchingState.rightSelected) {
+                const left = matchingState.leftSelected;
+                const right = matchingState.rightSelected;
+                stats.total++; 
+
+                if (left.data.id === right.data.id) {
+                    stats.correct++;
+                    left.btn.className = STYLES.matched;
+                    right.btn.className = STYLES.matched;
+                    
+                    matchingState.matchedPairs++;
+                    matchingState.leftSelected = null;
+                    matchingState.rightSelected = null;
+
+                    if (matchingState.matchedPairs === matchingState.totalPairs) {
+                        const feedback = document.getElementById('test-feedback');
+                        feedback.className = "text-center font-semibold text-sm py-2 rounded-xl bg-emerald-50 text-emerald-700";
+                        feedback.innerText = "✨ Perfect! All matched.";
+                        btnNext.classList.remove('hidden');
+                    }
+                } else {
+                    stats.incorrect++;
+                    left.btn.className = STYLES.wrong;
+                    right.btn.className = STYLES.wrong;
+
+                    incorrectTracking.push({
+                        prompt: left.data.text,
+                        correct: left.data.correctPartner
+                    });
+
+                    matchingState.leftSelected = null;
+                    matchingState.rightSelected = null;
+                }
+                updateStatsUI();
+            }
+        }
+
+        // --- NAVIGATION HANDLERS ---
+        document.getElementById('btn-next').onclick = () => {
+            generateQuestion();
+        };
+
+        function finishSession() {
+            document.getElementById('screen-test').classList.add('hidden');
+            document.getElementById('stats-panel').classList.add('hidden');
+            document.getElementById('btn-finish-top').classList.add('hidden');
+            document.getElementById('screen-results').classList.remove('hidden');
+
+            document.getElementById('res-total').innerText = stats.total;
+            document.getElementById('res-correct').innerText = stats.correct;
+            const accuracy = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
+            document.getElementById('res-accuracy').innerText = accuracy + '%';
+            document.getElementById('res-incorrect-count').innerText = incorrectTracking.length;
+
+            const listContainer = document.getElementById('incorrect-list-container');
+            listContainer.innerHTML = '';
+
+            if (incorrectTracking.length === 0) {
+                listContainer.innerHTML = `<div class="p-4 text-slate-500 text-center bg-slate-50">No mistakes made! Flawless learning run. 🔥</div>`;
+            } else {
+                incorrectTracking.forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = "p-3 bg-white text-slate-700 border-b border-slate-100 font-medium";
+                    row.innerHTML = `<span>${item.prompt}</span> — <span class="text-emerald-600 font-semibold">${item.correct}</span>`;
+                    listContainer.appendChild(row);
+                });
+            }
+        }
+
+        function restartSetup() {
+            document.getElementById('screen-results').classList.add('hidden');
+            document.getElementById('screen-setup').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
