@@ -124,6 +124,8 @@
         Vocabulary Trainer by Volodymyr Zavalniuk
     </footer>
 
+    // -------------------------------------------------------------	
+	
     <script>
 	//Word Pronouncer
         function pronounceWord(word) {
@@ -136,9 +138,7 @@
             speechSynthesis.speak(utterance);
         }
 
-        // -------------------------------------------------------------
-        // CONFIGURATION: Add your vocabulary text file names here!
-        // -------------------------------------------------------------
+        // CONFIGURATION: vocabulary text file names here!
         const VOCAB_FILES = [
             'words.txt',
             'words 1.txt',
@@ -338,7 +338,7 @@
                 selectedBtn.className = "p-3.5 text-left border border-rose-500 bg-rose-50 text-rose-800 rounded-xl text-sm font-bold shadow-sm";
                 
                 incorrectTracking.push({
-                    prompt: currentDirection === 'ua-en' ? currentQuestionData.en : currentQuestionData.ua,
+                    prompt: currentDirection === 'ua-en' ? currentQuestionData.ua : currentQuestionData.en,
                     correct: correct
                 });
 
@@ -519,7 +519,7 @@
 
                     incorrectTracking.push({
                         prompt: left.data.text,
-                        correct: left.data.correctPartner
+                        correct: left.data.matches
                     });
 
                     matchingState.leftSelected = null;
