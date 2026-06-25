@@ -124,9 +124,8 @@
         Vocabulary Trainer by Volodymyr Zavalniuk
     </footer>
 
-    // -------------------------------------------------------------	
-	
-    <script>
+    
+	<script>
 	//Word Pronouncer
         function pronounceWord(word) {
             word.trim();
@@ -137,7 +136,7 @@
             utterance.pitch = 1.1;    
             speechSynthesis.speak(utterance);
         }
-
+    // -------------------------------------------------------------	
         // CONFIGURATION: vocabulary text file names here!
         const VOCAB_FILES = [
             'words.txt',
