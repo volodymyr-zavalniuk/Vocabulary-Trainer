@@ -188,8 +188,8 @@
                 const parts = line.split(/\s*[-:=|\t]\s*/);
                 if (parts.length >= 2) {
                     list.push({
-                        ua: parts[0].trim(),
-                        en: parts[1].trim()
+                        en: parts[0].trim(),
+                        ua: parts[1].trim()
                     });
                 }
             });
@@ -280,9 +280,8 @@
             const target = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
             currentQuestionData = target;
 
-            // Swapped directions: UA->EN means Prompt EN, Answer UA
-            const questionText = currentDirection === 'ua-en' ? target.en : target.ua;
-            const correctAnswer = currentDirection === 'ua-en' ? target.ua : target.en;
+            const questionText = currentDirection === 'ua-en' ? target.ua : target.en;
+            const correctAnswer = currentDirection === 'ua-en' ? target.en : target.ua;
             document.getElementById('test-question-prompt').innerText = `Translate: "${questionText}"`;
 
             let options = [correctAnswer];
