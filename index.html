@@ -363,7 +363,10 @@
         // --- MODE 2: SPELLING (TYPING) ---
         function setupSpellingQuestion(workspace, btnSubmit, btnNext) {
 			document.getElementById('test-direction-badge').classList.remove('hidden');
-            document.getElementById('word-pronouncer').classList.add('hidden');
+			// word-pronouncer button only in EN-UA mode
+            if (currentDirection === 'ua-en') {document.getElementById('word-pronouncer').classList.add('hidden');}
+              else {document.getElementById('word-pronouncer').classList.remove('hidden');}
+			
             const target = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
             currentQuestionData = target;
 
