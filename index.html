@@ -157,7 +157,7 @@
         
         // Runtime variables for current question
         let currentQuestionData = null; 
-        let currentDirection = 'ua-en'; 
+        let currentDirection = 'en-ua'; 
         let matchingState = { leftSelected: null, rightSelected: null, totalPairs: 0, matchedPairs: 0 };
 
         // Class Styles Configurations for clean execution
@@ -290,9 +290,10 @@
 
         // --- MODE 1: MULTIPLE CHOICE ---
         function setupMultipleChoiceQuestion(workspace, btnNext) {
-            // word-pronouncer button only in EN-UA mode
+            document.getElementById('test-direction-badge').classList.remove('hidden');
+			// word-pronouncer button only in EN-UA mode
             if (currentDirection === 'ua-en') {document.getElementById('word-pronouncer').classList.add('hidden');}
-		else {document.getElementById('word-pronouncer').classList.remove('hidden');}
+              else {document.getElementById('word-pronouncer').classList.remove('hidden');}
 
             const target = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
             currentQuestionData = target;
@@ -307,7 +308,7 @@
 
             while (options.length < maxDecoys && loopCounter < 200) {
                 const randomWord = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
-                const potentialDecoy = currentDirection === 'ua-en' ? randomWord.ua : randomWord.en;
+                const potentialDecoy = currentDirection === 'ua-en' ? randomWord.en : randomWord.ua;
                 if (!options.includes(potentialDecoy)) {
                     options.push(potentialDecoy);
                 }
@@ -363,6 +364,7 @@
 
         // --- MODE 2: SPELLING (TYPING) ---
         function setupSpellingQuestion(workspace, btnSubmit, btnNext) {
+			document.getElementById('test-direction-badge').classList.remove('hidden');
             document.getElementById('word-pronouncer').classList.add('hidden');
             const target = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
             currentQuestionData = target;
@@ -424,6 +426,7 @@
 
         // --- MODE 3: CORRESPONDENCE MATCHING ---
         function setupMatchingQuestion(workspace, btnNext) {
+            document.getElementById('test-direction-badge').classList.add('hidden');			
             document.getElementById('word-pronouncer').classList.add('hidden');
             document.getElementById('test-question-prompt').innerText = "Match the corresponding pairs";
             
