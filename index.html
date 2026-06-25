@@ -364,13 +364,13 @@
 
             const questionText = currentDirection === 'ua-en' ? target.ua : target.en;
             const correctAnswer = currentDirection === 'ua-en' ? target.en : target.ua;
-            document.getElementById('test-question-prompt').innerText = `Type the translation for: "${questionText}"`;
+            document.getElementById('test-question-prompt').innerText = `${questionText}`;
 
             const input = document.createElement('input');
             input.type = 'text';
             input.id = 'spelling-input-field';
             input.className = "w-full p-3 text-center text-lg border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm";
-            input.placeholder = "Type your answer here...";
+            input.placeholder = "Type the translation here...";
             input.autocomplete = "off";
 
             input.onkeydown = (e) => {
