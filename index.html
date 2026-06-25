@@ -11,7 +11,7 @@
     <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
             <h1 class="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-                ⚡ <span id="app-title">Vocabulary Trainer</span>
+                ⚡ <span id="app-title">VocabTrainer</span>
             </h1>
             <div id="stats-panel" class="hidden flex items-center gap-6 text-sm font-medium text-slate-600">
                 <div>Total: <span id="stat-total" class="text-slate-900 font-bold">0</span></div>
@@ -70,6 +70,7 @@
             <div class="text-center space-y-1">
                 <span id="test-direction-badge" class="px-2 py-0.5 text-xs font-bold tracking-wide uppercase bg-slate-100 text-slate-600 rounded-md"></span>
                 <h3 id="test-question-prompt" class="text-2xl font-bold text-slate-900 pt-2"></h3>
+                <button id="word-pronouncer" onclick="pronounceWord(document.getElementById('test-question-prompt').innerText)" style="padding: 10px 20px; font-size: 24px; margin-left: 10px; cursor: pointer;">📢</button>
             </div>
 
             <div id="test-workspace" class="min-h-[160px] flex flex-col justify-center">
@@ -128,6 +129,17 @@
     </footer>
 
     <script>
+	//Word Pronouncer
+        function pronounceWord(word) {
+            word.trim();
+            speechSynthesis.cancel(); // Stop any current speech
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9;   
+            utterance.pitch = 1.1;    
+            speechSynthesis.speak(utterance);
+        }
+
         // -------------------------------------------------------------
         // CONFIGURATION: Add your vocabulary text file names here!
         // -------------------------------------------------------------
@@ -185,7 +197,8 @@
             const list = [];
             lines.forEach(line => {
                 if (!line.trim()) return;
-                const parts = line.split(/\s*[-:=|\t]\s*/);
+                //const parts = line.split(/\s*[-:=|\t]\s*/); //original line splitters
+                const parts = line.split(=\t);
                 if (parts.length >= 2) {
                     list.push({
                         en: parts[0].trim(),
@@ -277,12 +290,16 @@
 
         // --- MODE 1: MULTIPLE CHOICE ---
         function setupMultipleChoiceQuestion(workspace, btnNext) {
+            // word-pronouncer button only in EN-UA mode
+            if (currentDirection === 'ua-en') {document.getElementById('word-pronouncer').classList.add('hidden');}
+		else {document.getElementById('word-pronouncer').classList.remove('hidden');}
+
             const target = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
             currentQuestionData = target;
 
             const questionText = currentDirection === 'ua-en' ? target.ua : target.en;
             const correctAnswer = currentDirection === 'ua-en' ? target.en : target.ua;
-            document.getElementById('test-question-prompt').innerText = `Translate: "${questionText}"`;
+            document.getElementById('test-question-prompt').innerText = `${questionText}`;
 
             let options = [correctAnswer];
             let loopCounter = 0;
@@ -346,12 +363,12 @@
 
         // --- MODE 2: SPELLING (TYPING) ---
         function setupSpellingQuestion(workspace, btnSubmit, btnNext) {
+            document.getElementById('word-pronouncer').classList.add('hidden');
             const target = wordsDatabase[Math.floor(Math.random() * wordsDatabase.length)];
             currentQuestionData = target;
 
-            // Swapped directions logic
-            const questionText = currentDirection === 'ua-en' ? target.en : target.ua;
-            const correctAnswer = currentDirection === 'ua-en' ? target.ua : target.en;
+            const questionText = currentDirection === 'ua-en' ? target.ua : target.en;
+            const correctAnswer = currentDirection === 'ua-en' ? target.en : target.ua;
             document.getElementById('test-question-prompt').innerText = `Type the translation for: "${questionText}"`;
 
             const input = document.createElement('input');
@@ -407,18 +424,21 @@
 
         // --- MODE 3: CORRESPONDENCE MATCHING ---
         function setupMatchingQuestion(workspace, btnNext) {
+            document.getElementById('word-pronouncer').classList.add('hidden');
             document.getElementById('test-question-prompt').innerText = "Match the corresponding pairs";
             
             const poolSize = Math.min(5, wordsDatabase.length);
             const shuffledPool = [...wordsDatabase].sort(() => Math.random() - 0.5).slice(0, poolSize);
             
-            // Swapped matching mapping: left becomes EN, right becomes UA for standard ua-en setting setup direction
-            let leftSide = shuffledPool.map(w => ({ id: w.ua, text: currentDirection === 'ua-en' ? w.en : w.ua, correctPartner: currentDirection === 'ua-en' ? w.ua : w.en }));
-            let rightSide = shuffledPool.map(w => ({ id: w.ua, text: currentDirection === 'ua-en' ? w.ua : w.en, correctPartner: currentDirection === 'ua-en' ? w.en : w.ua }));
+            // Generate lists items
+            let leftSide = shuffledPool.map(w => ({ id: w.ua, text: w.ua, matches: w.en }));
+            let rightSide = shuffledPool.map(w => ({ id: w.ua, text: w.en, matches: w.ua }));
 
+            // Shuffle display layout sides separately
             leftSide.sort(() => Math.random() - 0.5);
             rightSide.sort(() => Math.random() - 0.5);
 
+            // Reinitialize runtime state tracking metrics
             matchingState = { leftSelected: null, rightSelected: null, totalPairs: poolSize, matchedPairs: 0 };
 
             const container = document.createElement('div');
