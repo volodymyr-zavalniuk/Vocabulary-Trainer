@@ -1,0 +1,39 @@
+﻿About, face!	Кругом!
+As you were!	Відставити!
+At ease!	Вільно!
+Attention!	Струнко!
+By the left, quick march!	Кроком руш (рівняння ліворуч)!
+By the right, quick march!	Кроком руш (рівняння праворуч)!
+Change step, march!	Змінити ногу!
+Column left, march!	Ліве плече вперед, марш!
+Column right, march!	Праве плече вперед, марш!
+Cover!	У потилицю! (Вирівняти колони)
+Dismissed!	Розійтись!
+Double time, march!	Бігом руш!
+Dress right, dress!	Рівняння праворуч!
+Eyes front!	Струнко (голову прямо)!
+Eyes left!	Рівняння ліворуч!
+Eyes right!	Рівняння праворуч!
+Fall in!	Ставай! (Шикуйсь!)
+Fall out!	Розійтись (залишатися поблизу)!
+Forward, march!	Кроком руш!
+Half step, march!	Півкроку, марш!
+Halt!	Стій!
+Hand, salute!	Віддати військове вітання!
+Left, face!	Ліворуч!
+Left step, march!	Приставним кроком ліворуч, руш!
+Mark time, march!	На місці кроком руш!
+Open ranks, march!	Розімкнути шеренги!
+Order, arms!	До ноги! (Зброю до ноги)
+Parade, rest!	Вільно (парадна стійка)!
+Present, arms!	На караул!
+Quick time, march!	Звичайним кроком руш!
+Ready, front!	Струнко (після рівняння)!
+Rest!	Вільно (повний відпочинок у строю)!
+Right, face!	Праворуч!
+Right step, march!	Приставним кроком праворуч, руш!
+Route step, march!	Не в ногу, руш!
+Shoulder, arms!	На плече!
+Sling, arms!	На ремінь!
+Sound off!	Розрахуйсь! / Відгукнутися!
+Stand at ease!	Вільно (із фіксацією погляду на командира)!

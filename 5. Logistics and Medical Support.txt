@@ -1,0 +1,42 @@
+﻿Airlift	Повітряне перевезення (постачання авіацією)
+Ammunition Dump	Польовий склад боєприпасів
+Blood Transfusion	Переливання крові
+Burn Dressing	Протиопікова пов'язка
+Casualty	Санітарна або безповоротна втрата (поранений/загиблий)
+Casualty Evacuation (CASEVAC)	Евакуація поранених (неспеціалізованим транспортом)
+Chest Seal	Оклюзійна наліпка (при пораненні грудної клітки)
+Combat Lifesaver (CLS)	Бойовий рятувальник
+Combat Service Support (CSS)	Тилове та технічне забезпечення
+Convoy	Колона (конвой)
+Decompression Needle	Декомпресійна голка
+Field Dressing	Індивідуальний перев'язувальний пакет (бандаж)
+Field Hospital	Польовий госпіталь
+Field Kitchen	Польова кухня
+First Aid Kit (IFAK)	Індивідуальна аптечка
+Forward Operating Base (FOB)	Передова оперативна база
+Fuel Dump	Склад пально-мастильних матеріалів (ПММ)
+Hemostatic Gauze	Гемостатичний бинт
+Killed in Action (KIA)	Загиблий у бою
+Line of Communication (LOC)	Лінія комунікацій (маршрут постачання)
+Litter / Stretcher	Ноші (медичні)
+Logistics	Логістика (матеріально-технічне забезпечення)
+Maintenance	Технічне обслуговування та ремонт
+Medical Evacuation (MEDEVAC)	Медична евакуація (спеціалізованим транспортом)
+Missing in Action (MIA)	Зниклий безвісти
+Motor Pool	Автопарк (парк техніки)
+Nasopharyngeal Airway (NPA)	Назофарингеальний повітропровід
+Prisoner of War (POW)	Військовополонений
+Quartermaster	Начальник тилу / інтендант
+Ration / MRE	Сухий пайок
+Refueling	Дозаправка
+Resupply	Поповнення запасів
+Resupply Drop	Скидання припасів із повітря
+Salvage	Евакуація пошкодженої техніки
+Spare Parts	Запасні частини (ЗІП)
+Supply Chain	Ланцюг постачання
+Supply Depot	Склад постачання
+Tactical Combat Casualty Care (TCCC)	Тактична медицина (допомога пораненим у бою)
+Tourniquet	Турнікет (кровоспинний джгут)
+Trauma Shears	Атравматичні (тактичні) ножиці
+Triage	Медичне сортування
+Wounded in Action (WIA)	Поранений у бою

@@ -1,0 +1,34 @@
+﻿Afterdeck	Кормова палуба
+Anchor	Якір
+Bilge	Трюм (днищева частина)
+Bow	Ніс корабля
+Bridge	Ходовий місток
+Bulkhead	Перебірка (перегородка)
+Combat Information Center (CIC)	Бойовий інформаційний центр (БІЦ)
+Deck	Палуба
+Draft	Осадка корабля
+Engine Room	Машинне відділення
+Flight Deck	Польотна палуба
+Forecastle	Бак (носова частина палуби)
+Funnel / Smokestack	Димова труба
+Galley	Камбуз
+Gangway	Трап
+Gun Turret	Артилерійська башта
+Hangar	Ангар
+Helm	Штурвал (стерно)
+Hull	Корпус судна
+Keel	Кіль
+Mast	Щогла
+Mooring Line	Швартовий канат
+Port Side	Лівий борт
+Porthole	Ілюмінатор
+Propeller / Screw	Гребний гвинт
+Radar Mast	Радіолокаційна щогла
+Rudder	Стерно (руль)
+Sonar Dome	Обтічник гідроакустичної станції (ГАС)
+Starboard Side	Правий борт
+Stern	Корма
+Superstructure	Надбудова
+Torpedo Tube	Торпедний апарат
+Vertical Launching System (VLS)	Установка вертикального пуску (УВП)
+Waterline	Ватерлінія

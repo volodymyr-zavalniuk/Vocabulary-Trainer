@@ -1,0 +1,46 @@
+﻿Active Protection System (APS)	Комплекс активного захисту (КАЗ)
+Air Defense (AD)	Протиповітряна оборона (ППО)
+Ammunition (Ammo)	Боєприпаси
+Anti-Tank Guided Missile (ATGM)	Протитанковий ракетний комплекс (ПТРК)
+Armor-Piercing (AP)	Бронебійний (боєприпас)
+Armored Personnel Carrier (APC)	Бронетранспортер (БТР)
+Artillery	Артилерія
+Assault Rifle	Штурмова гвинтівка (автомат)
+Ballistic Vest / Body Armor	Бронежилет
+Bayonet	Багнет-ніж
+Binoculars	Бінокль
+Close Air Support (CAS)	Безпосередня авіаційна підтримка
+Cluster Munition	Касетний боєприпас
+Combat Vehicle	Бойова машина
+Counter-Battery Radar	Контрбатарейний радар
+Cruise Missile	Крилата ракета
+Explosive Ordnance Disposal (EOD)	Розмінування (знешкодження вибухонебезпечних предметів)
+Field Radio	Польова радіостанція
+Frag Grenade	Осколкова граната
+Grenade Launcher	Гранатомет
+Guided Bomb	Керована авіабомба (КАБ)
+High-Explosive (HE)	Фугасний / осколково-фугасний
+Howitzer	Гаубиця
+Improvised Explosive Device (IED)	Саморобний вибуховий пристрій (СВП)
+Infantry Fighting Vehicle (IFV)	Бойова машина піхоти (БМП)
+Kevlar Helmet	Кевларовий шолом
+Landmine	Протипіхотна або протитанкова міна
+Laser Designator	Лазерний цілевказівник
+Loitering Munition	Баражуючий боєприпас (дрон-камікадзе)
+Machine Gun	Кулемет
+Main Battle Tank (MBT)	Основний бойовий танк (ОБТ)
+Man-Portable Air-Defense System (MANPADS)	Переносний зенітний ракетний комплекс (ПЗРК)
+Minefield	Мінне поле
+Mortar	Міномет
+Multiple Launch Rocket System (MLRS)	Реактивна система залпового вогню (РСЗВ)
+Night Vision Device (NVD)	Прилад нічного бачення (ПНБ)
+Plate Carrier	Плитоноска
+Precision-Guided Munition (PGM)	Високоточний боєприпас
+Rocket-Propelled Grenade (RPG)	Ручний протитанковий гранатомет (РПГ)
+Self-Propelled Howitzer (SPH)	Самохідна артилерійська установка (САУ)
+Small Arms	Стрілецька зброя
+Smoke Grenade	Димова граната
+Surface-to-Air Missile (SAM)	Зенітна керована ракета (ЗКР)
+Thermal Imager	Тепловізор
+Tracer Round	Трасуючий набій
+Unmanned Aerial Vehicle (UAV)	Безпілотний літальний апарат (БПЛА)

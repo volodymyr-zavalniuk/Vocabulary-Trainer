@@ -1,0 +1,41 @@
+﻿After Action Review (AAR)	Розбір проведених дій (аналіз після операції)
+Airspace Control	Контроль повітряного простору
+Area of Interest (AOI)	Район зацікавленості
+Area of Operations (AO)	Район операцій
+Area of Responsibility (AOR)	Зона відповідальності
+Battle Damage Assessment (BDA)	Оцінка бойових втрат
+Battle Rhythm	Бойовий ритм (розклад роботи штабу)
+Center of Gravity (COG)	Центр тяжіння (ключове джерело сили)
+Chain of Command	Ланцюг командування
+Combat Readiness	Бойова готовність
+Command and Control (C2)	Командування та управління
+Command Post (CP)	Командний пункт
+Commander's Intent	Задум командира
+Concept of Operations (CONOPS)	Концепція проведення операції
+Course of Action (COA)	Варіант дій
+Deconfliction	Деконфліктизація (узгодження дій для уникнення зіткнень)
+Deployment	Розгортання
+Deterrence	Стримування
+Escalation	Ескалація
+Force Protection (FP)	Захист військ (сил)
+Fragmentary Order (FRAGO)	Бойове розпорядження (фрагментарний наказ)
+Headquarters (HQ)	Штаб
+Host Nation (HN)	Країна перебування (приймаюча сторона)
+Interoperability	Взаємосумісність
+Joint Operations	Об'єднані операції
+Joint Task Force (JTF)	Об'єднана оперативно-тактична група
+Line of Departure (LD)	Рубіж переходу в атаку
+Main Effort	Головний удар (основні зусилля)
+Mission Command	Управління через постановку завдань
+Mission Essential Task List (METL)	Перелік основних завдань за призначенням
+Operation Order (OPORD)	Бойовий наказ
+Operation Plan (OPLAN)	План операції
+Operational Tempo (OPTEMPO)	Оперативний темп
+Phase Line (PL)	Рубіж регулювання (рубіж фази)
+Quick Reaction Force (QRF)	Сили швидкого реагування
+Rules of Engagement (ROE)	Правила застосування сили
+Situational Awareness (SA)	Ситуаційна обізнаність
+Standard Operating Procedure (SOP)	Стандартна операційна процедура
+Task Force (TF)	Оперативно-тактична група
+Theater of Operations	Театр воєнних дій (ТВД)
+Warning Order (WARNO)	Попереднє бойове розпорядження

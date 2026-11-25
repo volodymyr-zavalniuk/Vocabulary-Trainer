@@ -1,0 +1,47 @@
+﻿Air Force	Повітряні сили
+Airborne	Повітряно-десантні війська
+Armor	Танкові (бронетанкові) війська
+Artilleryman	Артилерист
+Battalion	Батальйон
+Battery	Батарея
+Brigade	Бригада
+Brigadier General	Бригадний генерал
+Captain	Капітан
+Cavalry	Розвідувально-бронетанкові підрозділи (кавалерія)
+Chief of Staff	Начальник штабу
+Colonel	Полковник
+Combat Engineer	Сапер / військовий інженер
+Commanding Officer (CO)	Командир частини (підрозділу)
+Company	Рота
+Corporal	Капрал (молодший сержант)
+Corps	Корпус
+Detachment	Загін (відокремлений підрозділ)
+Division	Дивізія
+Echelon	Ешелон
+Executive Officer (XO)	Заступник командира (виконавчий офіцер)
+Fireteam	Вогнева група
+Garrison	Гарнізон
+General	Генерал
+Infantry	Піхота
+Lieutenant	Лейтенант
+Lieutenant Colonel	Підполковник
+Lieutenant General	Генерал-лейтенант
+Major	Майор
+Major General	Генерал-майор
+Marine	Морський піхотинець
+Mechanized Infantry	Механізована піхота
+Military Police (MP)	Військова поліція
+Navy	Військово-морські сили (ВМС)
+Non-Commissioned Officer (NCO)	Сержантський склад (унтер-офіцер)
+Platoon	Взвод
+Private	Солдат (рядовий)
+Regiment	Полк
+Reservist	Резервіст
+Sergeant	Сержант
+Sniper	Снайпер
+Special Operations Forces (SOF)	Сили спеціальних операцій (ССО)
+Squad / Section	Відділення
+Squadron	Ескадрилья / дивізіон (у розвідці)
+Staff Officer	Офіцер штабу
+Warrant Officer	Ворент-офіцер (штаб-сержант / майстер-сержант)
+Wing	Авіакрило

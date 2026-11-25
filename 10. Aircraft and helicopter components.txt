@@ -1,0 +1,36 @@
+﻿Afterburner	Форсажна камера
+Aileron	Елерон
+Air Intake	Повітрозабірник
+Airframe	Планер (конструкція літака)
+Avionics	Авіоніка (бортове радіоелектронне обладнання)
+Canopy	Ліхтар кабіни
+Cockpit	Кабіна пілота
+Control Stick	Ручка управління літаком (РУЛ)
+Ejection Seat	Катапультне крісло
+Elevator	Руль висоти
+Empennage / Tail Assembly	Хвостове оперення
+Engine	Двигун
+Flap	Закрилок
+Fuel Tank	Паливний бак
+Fuselage	Фюзеляж
+Hardpoint / Pylon	Точка підвіски (пілон)
+Head-Up Display (HUD)	Індикатор на лобовому склі (ІЛС)
+Horizontal Stabilizer	Горизонтальний стабілізатор
+Jet Nozzle	Реактивне сопло
+Landing Gear	Шасі
+Leading Edge	Передня крайка крила
+Main Rotor	Несучий гвинт (гелікоптера)
+Nose Cone / Radome	Носовий обтічник (радіопрозорий обтічник РЛС)
+Pitot Tube	Трубка Піто (приймач повітряного тиску)
+Propeller	Повітряний гвинт (пропелер)
+Radar	Радіолокаційна станція (РЛС)
+Rudder	Руль напрямку
+Slat	Передкрилок
+Spoiler / Airbrake	Інтерцептор / повітряне гальмо
+Tail Boom	Хвостова балка
+Tail Rotor	Хвостовий (рульовий) гвинт
+Throttle	Важіль управління двигуном (РУД)
+Trailing Edge	Задня крайка крила
+Vertical Stabilizer / Fin	Кіль (вертикальний стабілізатор)
+Wing	Крило
+Wingtip	Закінцівка крила

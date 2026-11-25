@@ -1,0 +1,37 @@
+﻿Armor Plating	Броньові листи (броня)
+Autoloader	Автомат заряджання
+Ballistic Computer	Балістичний обчислювач
+Coaxial Machine Gun	Спарений кулемет
+Commander's Cupola	Командирська башточка
+Composite Armor	Композитна броня
+Crew Compartment	Бойове відділення (відділення екіпажу)
+Drive Sprocket	Ведуче колесо
+Driver's Hatch	Люк механіка-водія
+Engine Deck	Моторно-трансмісійне відділення (МТВ)
+Exhaust Pipe	Вихлопна труба
+Explosive Reactive Armor (ERA)	Динамічний захист (ДЗ)
+Fire Control System (FCS)	Система управління вогнем (СУВ)
+Glacis Plate	Верхня лобова деталь (ВЛД)
+Gun Mantlet	Маска гармати
+Gunner's Sight	Приціл навідника
+Hatch	Люк
+Hull	Корпус
+Idler Wheel	Направляюче колесо (лінивець)
+Laser Rangefinder	Лазерний далекомір
+Main Gun	Основна гармата
+Periscope	Перископ
+Ramp	Апарель
+Road Wheel	Опорний коток
+Side Skirt	Бортовий екран
+Slat Armor / Cage Armor	Протикумулятивна решітка
+Smoke Grenade Discharger	Димовий гранатомет (система постановки димових завіс)
+Spall Liner	Протиуламковий підбій
+Stabilizer	Стабілізатор озброєння
+Suspension	Підвіска
+Thermal Sight	Тепловізійний приціл
+Torsion Bar	Торсіон
+Tow Hook	Буксирувальний гак
+Track	Гусениця
+Track Link	Трак гусениці
+Turret	Башта
+Turret Ring	Погон башти

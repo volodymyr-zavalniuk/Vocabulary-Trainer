@@ -1,0 +1,43 @@
+﻿Acoustic Intelligence (ACINT)	Акустична розвідка
+All-Source Intelligence	Комплексна розвідка (з усіх джерел)
+Callsign	Позивний
+Cipher	Шифр
+Codeword	Кодове слово
+Communications Security (COMSEC)	Безпека зв'язку
+Counter-Reconnaissance	Контррозвідувальна боротьба (протидія розвідці ворога)
+Counterintelligence (CI)	Контррозвідка
+Cyber Warfare	Кібервійна (кібероперації)
+Decryption	Дешифрування
+Direction Finding (DF)	Пеленгація
+Electronic Countermeasures (ECM)	Радіоелектронна протидія (РЕП)
+Electronic Intelligence (ELINT)	Радіотехнічна розвідка
+Electronic Warfare (EW)	Радіоелектронна боротьба (РЕБ)
+Encryption	Шифрування
+Frequency Hopping	Псевдовипадкове перелаштування робочої частоти (ППРЧ)
+Friend or Foe (IFF)	Система розпізнавання «свій-чужий»
+Geospatial Intelligence (GEOINT)	Геопросторова розвідка
+Human Intelligence (HUMINT)	Агентурна розвідка
+Imagery Intelligence (IMINT)	Видова розвідка
+Intelligence, Surveillance, and Reconnaissance (ISR)	Розвідка та спостереження
+Intercept	Перехоплення (сигналу/переговорів)
+Jammer	Постановник перешкод (глушилка)
+Jamming	Постановка перешкод (глушіння)
+Line of Sight (LOS)	Пряма видимість
+Measurement and Signature Intelligence (MASINT)	Вимірювально-сигнатурна розвідка
+Open-Source Intelligence (OSINT)	Розвідка на основі відкритих джерел
+Operations Security (OPSEC)	Оперативна безпека
+Priority Intelligence Requirement (PIR)	Пріоритетна розвідувальна вимога
+Radio Check	Перевірка зв'язку
+Radio Silence	Режим радіомовчання
+Reconnaissance by Fire	Розвідка боєм
+Relay	Ретрансляція / ретранслятор
+Roger	Прийнято (зрозумів)
+Satellite Imagery	Супутникові знімки
+Secure Channel	Захищений канал зв'язку
+Signals Intelligence (SIGINT)	Радіоелектронна розвідка (РЕР)
+Situation Report (SITREP)	Донесення про обстановку
+Spoofing	Спуфінг (підміна сигналу)
+Stand By	Очікуйте (залишайтеся на зв'язку)
+Tactical Data Link (TDL)	Тактична лінія передачі даних
+Target Acquisition	Виявлення та супровід цілі
+Wilco	Прийнято, виконую

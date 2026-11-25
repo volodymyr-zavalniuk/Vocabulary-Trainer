@@ -1,0 +1,32 @@
+﻿Airframe / Frame	Рама / планер дрона
+Antenna	Антена
+Autopilot	Автопілот
+Battery Pack	Акумуляторна батарея
+Brushless Motor	Безколекторний двигун
+Camera	Камера
+Catapult Launcher	Катапульта для запуску
+Control Link	Канал управління
+Data Link	Канал передачі даних
+Electronic Speed Controller (ESC)	Регулятор обертів двигуна
+Flight Controller (FC)	Польотний контролер
+FPV Camera	Курсова камера (FPV)
+Gimbal	Підвіс камери (стабілізатор)
+GNSS / GPS Module	Модуль супутникової навігації (GPS)
+Ground Control Station (GCS)	Наземна станція управління (НСУ)
+Gyroscope	Гіроскоп
+Inertial Measurement Unit (IMU)	Інерціальний вимірювальний блок
+Landing Skid	Посадкове шасі (полози)
+LiPo Battery	Літій-полімерний акумулятор
+Optical Sensor	Оптичний датчик
+Payload	Корисне навантаження
+Payload Bay	Відсік корисного навантаження
+Power Distribution Board (PDB)	Плата розподілу живлення
+Propeller / Prop	Пропелер (гвинт)
+Radio Receiver (RX)	Радіоприймач
+Radio Transmitter (TX)	Радіопередавач
+Release Mechanism	Механізм скидання
+Servo	Сервопривід
+Telemetry Module	Модуль телеметрії
+Thermal Camera	Тепловізійна камера
+Video Transmitter (VTX)	Відеопередавач
+Warhead	Бойова частина (БЧ)

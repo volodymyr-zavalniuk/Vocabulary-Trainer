@@ -1,0 +1,40 @@
+﻿Barrel	Ствол
+Bipod	Сошки
+Bolt	Затвор
+Bolt Carrier	Затворна рама
+Bore	Канал ствола
+Breech	Казенна частина ствола
+Buttstock / Stock	Приклад
+Chamber	Патронник
+Charging Handle	Руків'я зведення
+Dust Cover	Кришка ствольної коробки / шторка вікна викиду
+Ejection Port	Вікно викиду гільз
+Extractor	Екстрактор (викидач)
+Firing Pin	Ударник (бойок)
+Flash Hider	Полум'ягасник
+Foregrip	Переднє руків'я
+Front Sight	Мушка
+Gas Block	Газовий блок
+Gas Piston	Газовий поршень
+Gas Tube	Газова трубка
+Hammer	Курок
+Handguard	Цівка
+Iron Sights	Механічний приціл
+Magazine	Магазин
+Magazine Release	Кнопка скидання магазину
+Magazine Well	Шахта магазина
+Muzzle	Дуло (дульний зріз)
+Muzzle Brake	Дульне гальмо-компенсатор (ДГК)
+Picatinny Rail	Планка Пікатінні
+Pistol Grip	Пістолетне руків'я
+Rear Sight	Цілик
+Receiver	Ствольна коробка
+Recoil Spring	Поворотна пружина
+Rifling	Нарізи ствола
+Safety Selector	Запобіжник / перемикач режимів вогню
+Scope / Optic	Оптичний приціл
+Sear	Шептало
+Sling Swivel	Антабка
+Suppressor	Глушник (саундмодератор)
+Trigger	Спусковий гачок
+Trigger Guard	Спускова скоба

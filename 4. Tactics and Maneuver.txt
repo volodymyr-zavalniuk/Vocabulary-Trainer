@@ -1,0 +1,47 @@
+﻿Advance	Наступ / просування
+Air Assault	Повітряно-штурмова операція
+Ambush	Засідка
+Amphibious Operation	Морська десантна операція
+Area Defense	Позиційна оборона (оборона району)
+Assault	Штурм
+Blocking Position	Блокуюча позиція
+Bounding Overwatch	Пересування перекатами під прикриттям
+Breach	Прорив / пророблення проходу
+Breakthrough	Прорив оборони
+Camouflage	Камуфляж / маскування
+Chokepoint	Вузьке місце (дефіле)
+Clearing Operation	Зачистка
+Close Quarters Battle (CQB)	Ближній бій (у приміщеннях)
+Combined Arms	Загальновійськовий бій (взаємодія родів військ)
+Concealment	Маскування (від спостереження)
+Counter-Mobility	Контрмобільність (стримування просування ворога)
+Counterattack	Контратака
+Cover	Укриття (від вогню)
+Decoy	Хибна ціль / приманка
+Defense in Depth	Глибоко ешелонована оборона
+Defilade	Закрита позиція (захищена від прямого вогню)
+Delaying Action	Стримувальні дії
+Engagement Area (EA)	Район вогневого ураження
+Envelopment	Охоплення
+Extraction	Евакуація (виведення групи)
+Feint	Відволікаючий маневр (хибна атака)
+Fire and Maneuver	Вогонь і маневр
+Fire Support	Вогнева підтримка
+Flank	Фланг
+Flanking Maneuver	Фланговий маневр
+Forward Edge of the Battle Area (FEBA)	Передній край району оборони
+Infiltration	Просочування
+Kill Zone	Зона суцільного ураження
+Line of Contact	Лінія бойового зіткнення
+Neutralize	Нейтралізувати / подавити
+Observation Post (OP)	Спостережний пункт
+Overrun	Зім'яти оборону / захопити позицію
+Patrol	Патруль / дозор
+Pincer Movement	Охоплення з обох флангів («кліщі»)
+Rally Point	Пункт збору
+Reconnaissance (Recon)	Розвідка
+Retrograde	Відступ / відхідні дії
+Screen	Прикриття (розвідувальне заслонення)
+Suppressing Fire	Вогонь на подавлення
+Urban Warfare (MOUT)	Бойові дії в урбанізованій місцевості
+Withdrawal	Відхід
